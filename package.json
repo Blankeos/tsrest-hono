@@ -1,0 +1,22 @@
+{
+  "name": "tsrest-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hono/node-server": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.6",
+    "nodemon": "^3.0.1",
+    "tsx": "^3.12.7",
+    "typescript": "^5.2.2"
+  }
+}
