@@ -12,6 +12,12 @@ app.get("/", (c) => {
 
 createHonoEndpoints(contract, router, app);
 
-serve(app, (info) => {
-  console.log(`Listening on http://localhost:${info.port}`);
-});
+// Run the server!
+try {
+  serve(app, (info) => {
+    console.log(`Listening on http://localhost:${info.port}`);
+  });
+} catch (err) {
+  console.log(err);
+  process.exit(1);
+}
