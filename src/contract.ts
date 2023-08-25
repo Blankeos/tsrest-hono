@@ -3,27 +3,31 @@ import { z } from "zod";
 
 const c = initContract();
 
-type Post = {
-  title: string;
-  body: string;
-};
+export const TodoSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  completed: z.boolean(),
+});
 
 export const contract = c.router({
-  createPost: {
-    method: "POST",
-    path: "/posts",
-    responses: {
-      201: c.type<Post>(),
-    },
-    body: c.type<{ title: string }>(),
-    summary: "Create a post",
-  },
-  getPost: {
+  getTodos: {
     method: "GET",
-    path: `/posts/:id`,
+    path: "/todos",
     responses: {
-      200: c.type<Post | null>(),
+      201: TodoSchema.array(),
     },
-    summary: "Get a post by id",
+    summary: "Create ",
+  },
+  createTodo: {
+    method: "POST",
+    path: "/todo",
+    responses: {
+      201: TodoSchema,
+    },
+    body: z.object({
+      title: z.string(),
+      completed: z.boolean(),
+    }),
+    summary: "Creates a todo.",
   },
 });

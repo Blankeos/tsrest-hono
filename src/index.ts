@@ -1,25 +1,16 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { createHonoEndpoints } from "ts-rest-hono";
+import { contract } from "./contract";
+import router from "./honoRouter";
 
 const app = new Hono();
 
 app.get("/", (c) => {
-  return c.text("Hello Hono!");
+  return c.text("🔥 Hello Hono!");
 });
 
-app.get("/api/hello", (c) => {
-  return c.json({
-    ok: true,
-    message: "Hello Hono!",
-  });
-});
-
-app.get("/api/carlo", (c) => {
-  return c.json({
-    ok: true,
-    message: "Hello carlo!",
-  });
-});
+createHonoEndpoints(contract, router, app);
 
 serve(app, (info) => {
   console.log(`Listening on http://localhost:${info.port}`);

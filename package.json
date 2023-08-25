@@ -14,12 +14,16 @@
     "@hono/node-server": "^1.1.1",
     "@ts-rest/core": "^3.28.0",
     "@ts-rest/express": "^3.28.0",
+    "dotenv": "^16.3.1",
     "hono": "^3.5.4",
+    "nanoid": "^4.0.2",
+    "sqlite3": "^5.1.6",
     "ts-rest-hono": "^0.1.0",
     "zod": "^3.22.2"
   },
   "devDependencies": {
     "@types/node": "^20.5.6",
+    "kill-port": "^2.0.1",
     "nodemon": "^3.0.1",
     "tsx": "^3.12.7",
     "typescript": "^5.2.2"
